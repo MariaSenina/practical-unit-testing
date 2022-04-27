@@ -3,7 +3,7 @@ public class Money {
     private final String currency;
 
     public Money(int amount, String currency) {
-        this.amount = 15;
+        this.amount = amount;
         this.currency = currency;
     }
 
