@@ -1,3 +1,5 @@
+package chapter3;
+
 public class Money {
     private final int amount;
     private final String currency;

@@ -1,3 +1,5 @@
+package chapter3;
+
 import org.junit.Before;
 import org.junit.Test;
 

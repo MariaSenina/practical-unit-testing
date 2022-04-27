@@ -1,3 +1,5 @@
+package chapter3;
+
 public class Address {
     private String address;
 
