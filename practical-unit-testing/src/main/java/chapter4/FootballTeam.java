@@ -1,12 +1,13 @@
 package chapter4;
 
 public class FootballTeam {
+    private int gamesWon;
 
     public FootballTeam(int gamesWon) {
-
+        this.gamesWon = gamesWon;
     }
 
     public int getGamesWon() {
-        return 0;
+        return gamesWon;
     }
 }
