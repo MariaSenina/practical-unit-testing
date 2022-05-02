@@ -4,6 +4,9 @@ public class FootballTeam {
     private int gamesWon;
 
     public FootballTeam(int gamesWon) {
+        if(gamesWon < 0) {
+            throw new IllegalArgumentException(gamesWon + " is an illegal number of games won");
+        }
         this.gamesWon = gamesWon;
     }
 
