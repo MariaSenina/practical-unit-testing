@@ -12,6 +12,8 @@ import static org.junit.Assert.assertTrue;
 public class FootballTeamTest {
     // Constants
     private static final int ANY_NUMBER = 123;
+    private static final int TWO_GAMES_WON = 2;
+    private static final int THREE_GAMES_WON = 3;
 
     // Argument generator methods
     public Object[] illegalNumOfGamesWon() {
@@ -44,5 +46,35 @@ public class FootballTeamTest {
         FootballTeam team = new FootballTeam(ANY_NUMBER);
 
         assertTrue("Football tam should implement Comparable", team instanceof Comparable);
+    }
+
+    @Test
+    public void teamsWithMoreGamesWonShouldBeGreater() {
+        FootballTeam team_2 = new FootballTeam(TWO_GAMES_WON);
+        FootballTeam team_3 = new FootballTeam(THREE_GAMES_WON);
+
+        assertTrue("Team with " + team_3.getGamesWon() + " games won should be ranked " +
+                        "higher than the team with " + team_2.getGamesWon() + " games won",
+                team_3.compareTo(team_2) > 0);
+    }
+
+    @Test
+    public void teamsWithLessGamesWonShouldBeLesser() {
+        FootballTeam team_2 = new FootballTeam(TWO_GAMES_WON);
+        FootballTeam team_3 = new FootballTeam(THREE_GAMES_WON);
+
+        assertTrue("Team with " + team_2.getGamesWon() + " games won should be ranked " +
+                        "lower than the team with " + team_3.getGamesWon() + " games won",
+                team_2.compareTo(team_3) < 0);
+    }
+
+    @Test
+    public void teamsWithEqualNumberOfGamesWonShouldBeEqual() {
+        FootballTeam teamA = new FootballTeam(TWO_GAMES_WON);
+        FootballTeam teamB = new FootballTeam(TWO_GAMES_WON);
+
+        assertTrue("Both teams won the same number of games: " +
+                        teamA.getGamesWon() + " should equal " + teamB.getGamesWon(),
+                teamA.compareTo(teamB) == 0);
     }
 }
