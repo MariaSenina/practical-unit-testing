@@ -6,10 +6,23 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnitParamsRunner.class)
 public class FootballTeamTest {
+    // Constants
+    private static final int ANY_NUMBER = 123;
 
+    // Argument generator methods
+    public Object[] illegalNumOfGamesWon() {
+        return new Object[] {-10, -1};
+    }
+
+    public Object[] numOfGamesWon() {
+        return new Integer [] {0, 1, 2};
+    }
+
+    // Test methods
     @Test
     @Parameters(method = "numOfGamesWon")
     public void constructorShouldSetGamesWon(int numOfGamesWon) {
@@ -26,11 +39,10 @@ public class FootballTeamTest {
         new FootballTeam(numOfGamesWon);
     }
 
-    public Object[] illegalNumOfGamesWon() {
-        return new Object[] {-10, -1};
-    }
+    @Test
+    public void shouldBePossibleToCompareTeams() {
+        FootballTeam team = new FootballTeam(ANY_NUMBER);
 
-    public Object[] numOfGamesWon() {
-        return new Integer [] {0, 1, 2};
+        assertTrue("Football tam should implement Comparable", team instanceof Comparable);
     }
 }
