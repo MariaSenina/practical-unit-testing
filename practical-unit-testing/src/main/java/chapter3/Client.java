@@ -7,6 +7,10 @@ public class Client {
     private List<Address> addresses;
     private String email;
 
+    public Client(String email) {
+        this.email = email;
+    }
+
     public Client() {
         addresses = new ArrayList<>();
     }
